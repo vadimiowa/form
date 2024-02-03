@@ -93,9 +93,9 @@
 }
 
 .remember {
-    position: relative;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     margin-top: 20px;
     color: #fff;
     font-family: "open sans";
@@ -103,8 +103,7 @@
     font-size: 13px;
 }
 .remember__text {
-    position: absolute;
-    left: 25px;
+    margin-left: 5px;
 }
 
 .checkbox {
