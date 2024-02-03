@@ -1,0 +1,24 @@
+@media (max-width: 690px) {
+    .form {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .form__content {
+        margin: 0;
+        border-bottom: 1px solid #ffffff21;
+        border-right: none;
+    }
+
+    .buttom_for_reset {
+        margin-bottom: 30px;
+    }
+
+    .forgot {
+        margin: 10px 0px 10px 0px;
+    }
+
+    .forgotPass {
+        margin-top: 50px;
+    }
+}
