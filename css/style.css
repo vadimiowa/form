@@ -119,6 +119,7 @@ body {
 }
 
 .remember {
+  position: relative;
   display: flex;
   align-items: center;
   margin-top: 20px;
@@ -129,7 +130,8 @@ body {
 }
 
 .remember__text {
-  margin-left: 5px;
+  position: absolute;
+  left: 25px;
 }
 
 .checkbox {
