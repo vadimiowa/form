@@ -70,23 +70,176 @@ console.log(Math.random()); */
 function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
-//let showRandom = getRandom(10, 95);
-//console.log(showRandom);
+// let showRandom = getRandom(10, 95);
+// console.log(showRandom);
 
+// let taskMath = setInterval(numberMath, 1000);
 
 
 //////////////////////////////////////////////  STRING  //////////////////////////////////////////////
+let ourName = "Vadim";
+let ourAge = 22;
+
+/* function thisYear() {
+    return ourAge;
+} */
+
+// let output = "Меня зовут " + ourName + " и мой возраст " + ourAge;
+// let output = `Hello my name is ${ourName} and my current year ${ourAge < 20 ? "age age" : "22"}`;
+// let output = `
+// <div>This is output</div>
+// <p> this is p </p>
+// `
+
+// let aboutTheWord = "programming";
+// console.log(aboutTheWord.length);
+// console.log(aboutTheWord.toUpperCase());
+// console.log(aboutTheWord.toLowerCase());
+// console.log(aboutTheWord.charAt(10));
+// console.log(aboutTheWord.indexOf("ramm"));
+// console.log(aboutTheWord.startsWith("pro"));
+// console.log(aboutTheWord.endsWith("ing"));
+// console.log(aboutTheWord.repeat(3));
+
+// let pass = `      password      `;
+// console.log(pass.trim());
+// console.log(pass.trimLeft());
+// console.log(pass.trimRight());
+
+//  New syntax
+// function logPurson(s, name, age) {
+//     if(age < 0) {
+//         age = "It's folse";
+//     }
+//     return `${s[0]}${name}${s[1]}${age}${s[2]}`;
+// }
+
+// let oneName = "Vadim,"
+// let oneAge = 22;
+// let oneName2 = "Maksim,"
+// let oneAge2 = -20;
+
+// let output = logPurson`Name: ${oneName} Age: ${oneAge} !`;
+// let output2 = logPurson`Name: ${oneName2} Age: ${oneAge2} !`;
+// console.log(output);
+// console.log(output2);
+
+function toMathArr(arr) {
+    let ux = 0;
+    for(let i = 0; i < arr.length; i++) {
+        ux += arr[i];
+    }
+
+    return ux;
+}
+
+function aboutMeHere(a, name, age, here, array) {
+    let toThisArr = toMathArr(array);
+    let showRandom = getRandom(10, 95);
+
+    if(age > 0) {
+        // console.log("How much will you pay for your apartment ?");
+        age = 22 + " good";
+    } else {
+        // console.log("I chenged my decision yesterday !!!");
+        age = false;
+    }
+
+    return `${a[0]}${name}${a[1]}${age}${a[2]}${here} ${toThisArr}` + " " + showRandom;
+}
+
+let toName = "Vadim";
+let toAge = 22;
+let whoImHere = "front-end developer";
+
+let forMe = aboutMeHere`My name is ${toName} my current year ${toAge} and i'm here ${whoImHere} ${[200, 200, 789, 811, 1000]}`;
+// console.log(forMe);
+
+
+//////////////////////////////////////////////  FUNCTION  //////////////////////////////////////////////
+// Function number 1: "function declaration";
+// function greet(name) {
+//     console.log("This name", name);
+// }
+
+// greet("Vadim");
+
+// Function number 2: "function expression"
+// let greet2 = function greetTwo(name) {
+//     console.log("Two name", name);
+// }
+
+// greet2("Vadim");
+// console.log(typeof greet);
+// console.dir(greet);
+
+
+// Anonymous functions (анонимные функции);
+// let counter = 0;
+// let interval = setInterval(function() {
+//     if(counter == 5) {
+//         clearInterval(interval);
+//     } else {
+//         console.log(++counter);
+//     }
+// }, 1000);
+
+
+// Arrow => (стрелочные функции);
+function greet(name) {
+    console.log("This name", name);
+}
+
+let arrow = (name) => {
+    console.log("About my name", name);
+}
+// let arrow2 = name => console.log("What about name", name);
+
+// arrow("Vadim");
+// arrow2("Vadim");
+
+
+let poww = num => {
+    return num ** 2;
+}
+// console.log(poww(5));
+
+
+let pow = num => num * 2;
+// console.log(pow(5));
+
+
+// Default
+let sum = (a = 40, b = a * 2) => a + b;
+// console.log(sum());
+
+
+function sumAll(...all) {
+    let result = 0;
+    for(num of all) {
+        result += num;
+    }
+    return result;
+}
+
+let res = (sumAll(1, 2, 3, 4, 5, 6));
+// console.log(res);
 
 
 
+// Замыкание
+function createMember(name) {
+    return function(lastName) {
+        console.log(name + lastName);
+    }
+}
+
+// let logWithLastName = createMember("Vadim");
+// console.log(logWithLastName(" Sytnyk"));
 
 
 
-
-
-
-
-
+//////////////////////////////////////////////  ARRAY  //////////////////////////////////////////////
 
 
 

@@ -94,7 +94,7 @@ function logInfoAbout(name, year) {
     }
 }
 
-logInfoAbout("Vadim", 2002);
+//logInfoAbout("Vadim", 2002);
 
 // 7 Array ////////////////////////////////////////////////////////
 let aboutArray = ["bmw", "audi", "nissan", "porshe"];
