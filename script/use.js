@@ -240,8 +240,253 @@ function createMember(name) {
 
 
 //////////////////////////////////////////////  ARRAY  //////////////////////////////////////////////
+let cars = ["mazda", "ford", "bmw", "mersedes"];
+let fib = [1, 1, 2, 3, 5, 8, 13];
+let people = [
+    {name: "Vadim", budget: 4200},
+    {name: "Sasha", budget: 3500},
+    {name: "Max", budget: 1700}
+]
+
+// Function
+function addItemToEnd(){};
+
+// Method
+// cars.push("honda");
+// cars.unshift("henday");
+
+// let firstItem = cars.shift();
+// let lastCar = cars.pop();
+
+// console.log(firstItem);
+// console.log(lastCar);
+// console.log(cars);
 
 
+// console.log(cars.reverse());
+// console.log(cars);
+
+
+// task 1
+// let text = "Hello, i continue to learn javaSctipt";
+// let reverseText = text.split("").reverse().join("");
+// console.log(reverseText);
+
+// task 2
+// let index = cars.indexOf("bmw");
+// cars[index] = "porsche";
+// console.log(cars);
+
+// let findPerson;
+// for(let person of people) {
+//     if(person.budget === 4200) {
+//         findPerson = person;
+//     }
+// }
+// console.log(findPerson);
+
+// let index = people.findIndex(function(person) {
+//     return person.budget === 3500;
+// });
+// let man = people.find(function(person) {
+//     return person.budget === 3500;
+// });
+
+let aboutPerson = people.find(person => person.budget === 1700);
+let aboutMe = people.find(person => person.budget === 4200);
+
+// console.log(people[index]);
+// console.log(man);
+// console.log(aboutMe);
+
+// console.log(cars.includes("mazda"));
+
+// let upperCaseCars = cars.map(car => {
+//     return car.toUpperCase();
+// })
+
+
+// task 3
+// let pow2 = num => num ** 2;
+// let sqrt = num => Math.sqrt(num);
+
+// let pow2fib = fib.map(pow2);
+// const filterNumbers = pow2fib.filter(num => num > 20);
+
+// console.log(upperCaseCars);
+// console.log(cars);
+// console.log(pow2fib);
+// console.log(filterNumbers);
+
+
+// task 4
+// let people = [
+//     {name: "Vadim", budget: 4200},
+//     {name: "Sasha", budget: 3500},
+//     {name: "Max", budget: 1700}
+// ]
+
+let allBudget = people.filter(person => person.budget > 2000).reduce((acc, person) => {
+        acc += person.budget;
+    return acc;
+}, 0);
+
+// console.log(allBudget);
+
+let numbers = [1, 2, 3];
+let randomSsh = ran => Math.floor(Math.random() * ran);
+let numbersRandom = numbers.map(() => randomSsh(100));
+// console.log(numbersRandom);
+
+//////////////////////////////////////////////  OBJECTS {}  //////////////////////////////////////////////
+let mySelf = {
+    name: "Vadim",
+    age: 22,
+    isProgrammer: true,
+    languages: ["ua", "en", "ru"],
+    // "complex key": "complex Value",
+    // ["Key_" + (1 + 3)]: "Computed Key",
+    greet() {
+        console.log("Greet from person");
+    },
+    info() {
+        console.log("this: ", this);
+        console.info("Information about name is: ", this.name);
+    }
+}
+
+// console.log(mySelf.name);
+// let ageKey = "age";
+// console.log(mySelf[ageKey]);
+// console.log(mySelf["complex key"]);
+// console.log(mySelf.Key_4);
+// mySelf.greet();
+// console.log(mySelf);
+
+
+// mySelf.languages.push("English");
+// mySelf["Key_4"] = undefined;
+// delete mySelf["Key_4"];
+
+
+// destructuring
+// let name1 = mySelf.name;
+// let age1 = mySelf.age;
+// let languages1 = mySelf.languages;
+
+// NEW destructuring
+// let {name: ourNa, age: personAge = 22, languages} = mySelf;
+// console.log(ourNa, personAge, languages);
+
+// console.log(mySelf);
+// for(let key in mySelf) {
+//     if(mySelf.hasOwnProperty(key)) {
+//         console.log("Key: ", key);
+//         console.log("Value: ", mySelf[key]);
+//     }
+// }
+
+// Object.keys(mySelf).forEach((key) => {
+//     console.log("Key: ", key);
+//     console.log("Value: ", mySelf[key]);
+// });
+
+
+// Context
+// mySelf.info();
+
+let logger = {
+    keys() {
+        console.log("Object Keys: ", Object.keys(this));
+    },
+
+    keyAndValues() {
+        // Object.keys(this).forEach((key) => {
+        //     console.log(`"${key}": ${this[key]}`);
+        // })
+
+        // let self = this;
+        Object.keys(this).forEach(function(key) {
+            console.log(`"${key}": ${this[key]}`);
+        }.bind(this));
+    },
+
+    withParams(top = false, between = false, botton = false) {
+        if(top) {
+            console.log("------ Start ------");
+        }
+        Object.keys(this).forEach((key, index, array) => {
+            console.log(`"${key}": ${this[key]}`);
+            if(between && index !== array.length - 1) {
+                console.log("------------");
+            }
+        })
+
+        if(botton) {
+            console.log("------ End ------");
+        }
+    }
+}
+
+// let bound = logger.keys.bind(mySelf);
+// bound();
+// logger.keys.call(mySelf);
+// logger.keyAndValues.call(mySelf);
+
+// logger.withParams.call(mySelf, true, true, true);
+// logger.withParams.apply(mySelf, [true, true, true]);
+
+
+
+//////////////////////////////////////////////  ACYNCHRONY  //////////////////////////////////////////////
+let aPerson = {
+    name: "Vadim",
+    age: 22,
+    isProgrammer: true,
+    languages: ["Ukrain", "English", "Rassion"],
+    "complex key": "complex value",
+    ["Key_" + (1 + 3)]: "Computed key",
+    amazing() {
+        console.log("It looking amazing")
+    },
+
+    info() {
+        console.log("Infoemation about this method", this.name);
+    }
+}
+
+
+let loggers = {
+    keys() {
+        console.log("Object keys: ", Object.keys(this));
+    },
+
+    AndValue() {
+        Object.keys(this).forEach((key) => {
+            console.log(`${key}: ${this[key]}`);
+        })
+    },
+
+    correct(top = false, between = false, button = false) {
+        if(top) {
+            console.log("-------------Start-----------");
+        }
+        Object.keys(this).forEach((key, index, array) => {
+            console.log(`${key}: ${this[key]}`);
+            if(between && index != array.length -1) {
+                console.log("----------------------------");
+            }
+        })
+
+        if(button) {
+            console.log("-------------Finish------------");
+        }
+    }
+}
+
+loggers.correct.call(aPerson, true, true, true);
+// let bound = loggers.keys.bind(aPerson);
+// bound();
 
 
 
