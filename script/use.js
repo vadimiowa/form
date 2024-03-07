@@ -157,6 +157,29 @@ let forMe = aboutMeHere`My name is ${toName} my current year ${toAge} and i'm he
 
 
 //////////////////////////////////////////////  FUNCTION  //////////////////////////////////////////////
+let mathArr = arr => {
+    let s = 0;
+    for(let i of arr) {
+        s += i;
+    }
+    return s;
+}
+
+let keyRandom = ran => Math.floor(Math.random() * ran);
+
+let keysAbout = (arr, tname, age, prof, arrMath, ran) => {
+    age > 0 ? age = 22 + " true" : age = false;
+    let getMathFun = mathArr(arrMath);
+    let keyRan = ran.map(() => keyRandom(200000));
+    return `${arr[0]}${tname}${arr[1]}${age}${arr[2]}${prof} ${getMathFun} ${keyRan}`;
+}
+
+let keyName = "Vadim";
+let keyAge = 22;
+let keyProfession = "a software developer";
+
+let showKeys = keysAbout`My name is ${keyName} my current age ${keyAge} i'm ${keyProfession} ${[200, 400, 800, 600]} ${[1]}`;
+// console.log(showKeys);
 // Function number 1: "function declaration";
 // function greet(name) {
 //     console.log("This name", name);
@@ -436,9 +459,6 @@ let logger = {
 // logger.withParams.call(mySelf, true, true, true);
 // logger.withParams.apply(mySelf, [true, true, true]);
 
-
-
-//////////////////////////////////////////////  ACYNCHRONY  //////////////////////////////////////////////
 let aPerson = {
     name: "Vadim",
     age: 22,
@@ -484,9 +504,260 @@ let loggers = {
     }
 }
 
-loggers.correct.call(aPerson, true, true, true);
+// loggers.correct.call(aPerson, true, true, true);
 // let bound = loggers.keys.bind(aPerson);
 // bound();
+
+//////////////////////////////////////////////////////////////////////////////
+let car = {
+    brand: "BMW",
+    price: 25000,
+    model: "5-series",
+    thisIsMycar: true,
+    aCar() {
+        console.log("Information about this car")
+    }
+}
+
+let bindCar = {
+    thisCar(top = false, between = false, bottom = false) {
+        if(top) {
+            console.log("------------START-----------");
+        }
+        Object.keys(this).forEach((key, index, array) => {
+            console.log(`${key}: ${this[key]}`);
+            if(between && index != array.length -1) {
+                console.log("-----------------------");
+            }
+        })
+        if(bottom) {
+            console.log("--------------END--------------");
+        }
+    }
+}
+
+// bindCar.thisCar.call(car, true, true, true);
+
+
+//////////////////////////////////////////////  ACYNCHRONY  //////////////////////////////////////////////
+// Event Loop
+// let timeout = setTimeout(() => {
+//     console.log("After imeout");
+// }, 1000);
+
+// clearTimeout(timeout);
+
+// let interval = setInterval(() => {
+//     console.log("After imeout");
+// }, 1000);
+
+// clearInterval(timeout);
+
+// let delay = (callback, wait = 1000) => {
+//     setTimeout(callback, wait);
+// }
+
+// delay(() => {
+//     console.log("After two seconds");
+// }, 1000);
+
+let delay = (wait = 1000) => {
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve();
+            // reject("Try again");
+        }, wait)
+    })
+    return promise;
+}
+
+// delay(2500)
+// .then(() => {
+//     console.log("After two seconds");
+// })
+// .catch(err => console.error("Error: ", err))
+// .finally(() => console.log("finally"))
+
+
+let getData = () => new Promise(resolve => resolve([
+1, 1, 2, 3, 5, 8, 13
+]))
+
+// getData().then(data => console.log(data));
+
+async function asyncExample() {
+    try {
+        await delay(3000)
+        let data = await getData()
+        console.log("Data: ", data);
+    } catch(e) {
+        console.log(e);
+    } finally {
+        console.log("Finally");
+    }
+}
+
+// asyncExample();
+/////////////////////////////////////////////////////////////////////////////
+// let timeOut = setTimeout(() => {
+//     console.log("Right here you can see everything popular drings in this place");
+// }, 2000);
+
+// clearTimeout(timeOut);
+
+// let interval = setInterval(() => {
+//     console.log("We often talked on the phone yesterday");
+// }, 1500);
+
+// clearInterval(interval);
+
+// let twoDelay = (callback, wait = 1000) => {
+//     setTimeout(callback, wait);
+// }
+
+// twoDelay(() => {
+//     console.log("How much money do you want to earn here ?")
+// }, 2000);
+
+let proDelay = (wait = 1000) => {
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve();
+            // reject("This is interesting error!!!");
+        }, wait)
+    })
+    return promise;
+}
+
+// proDelay(1000)
+// .then(() => {
+//     console.log("After two seconds");
+// })
+// .catch(err => console.error("Error: ",err))
+// .finally(() => console.log("Finally"))
+
+
+let getDataSave = () => new Promise(resolve => resolve([
+    1, 1, 2, 3, 5, 8, 13
+]))
+
+// getDataSave().then(data => console.log(data));
+
+let asyncExampleTwo = async () => {
+    try {
+        await proDelay(1000)
+        let data = await getDataSave()
+        console.log(data);
+    } catch(e) {
+        console.log(e);
+    } finally {
+        console.log("Finally");
+    }
+}
+
+// asyncExampleTwo();
+let multiplePromis = (wait = 2000) => {
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve();
+            // reject("This is function")
+        }, wait)
+    })
+    return promise;
+}
+
+let multipleArray = () => new Promise(resolve => resolve([
+    490, 590, 690, 790, 890, 990, 1000
+]))
+
+let multipleAsync = async () => {
+    try {
+        await multiplePromis();
+        let arr = await multipleArray();
+        console.log(arr);
+    } catch(e) {
+        console.log("Error: ", e);
+    } finally {
+        console.log("We'are get finally");
+    }
+}
+
+// multipleAsync();
+
+//////////////////////////////////////////////  DOM ELEMENTS  ///////////////////////////////////////////////
+// https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent
+let headingOne = document.querySelector(".title__top");
+let headingTwo = document.querySelector(".title__between")
+let headingThree = document.querySelectorAll(".title__between");
+let headingThreeNext = headingThree[1];
+// let headingOne = document.getElementById("hello");
+// let headingTwo = document.getElementsByTagName("h2")[0];
+// let headingTwo = document.getElementsByClassName("title__between");
+// let headingTwo = document.querySelector(".title__between").nextElementSibling;
+// let headingTwo = document.querySelector(".title__between");
+// let headingThree = headingTwo.nextElementSibling;
+// let h2List = document.querySelectorAll(".title__between");
+// let headingThree = h2List[1];
+// let headingThree = h2List[h2List.length -1];
+// console.log(headingThree);
+
+let anotherHeadingOne = (node, color = "lightblue") => {
+    node.style.color = color;
+    node.style.backgroundColor = "#476a6b";
+    node.style.borderRadius = "10px";
+    node.style.transition = "0.5s";
+    node.style.width = "100%";
+}
+
+let anotherHeadingTwo = (node, color = "lightskyblue") => {
+    node.style.color = color;
+    node.style.transition = "0.5s";
+}
+
+setTimeout(() => {
+    anotherHeadingOne(headingOne, "#85d7ff");
+}, 1200)
+
+let link = headingTwo.querySelector("a");
+link.addEventListener("click", (event) => {
+    event.preventDefault();
+    console.log("Click on link: ", event.target.getAttribute("href"));
+    let url = event.target.getAttribute("href");
+
+    window.location = url;
+})
+
+setTimeout(() => {
+    anotherHeadingTwo(link, "lightskyblue");
+}, 1200)
+
+setTimeout(() => {
+    anotherHeadingOne(headingThreeNext, "lightblue");
+}, 1200)
+
+headingThreeNext.onclick = () => {
+    if(headingThreeNext.style.color === "lightblue") {
+        headingThreeNext.style.color = "#ccc";
+        headingThreeNext.style.backgroundColor = "black";
+    } else {
+        headingThreeNext.style.color = "lightblue"
+        headingThreeNext.style.backgroundColor = "#476a6b";
+    }
+}
+
+headingTwo.addEventListener("click", () => {
+    if(headingTwo.style.color === "lightskyblue") {
+        headingTwo.style.color = "#ccc";
+    } else {
+        headingTwo.style.color = "lightskyblue";
+    }
+})
+
+
+
+
+
+
 
 
 
