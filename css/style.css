@@ -35,7 +35,7 @@ body {
 }
 .title .title__top {
   margin: 0;
-  width: 50%;
+  width: 70%;
   font-size: 20px;
 }
 .title .title__between {
@@ -52,7 +52,7 @@ body {
   position: absolute;
   right: 0;
   margin: 0;
-  width: 50%;
+  width: 70%;
   font-size: 20px;
 }
 
