@@ -690,6 +690,7 @@ let headingOne = document.querySelector(".title__top");
 let headingTwo = document.querySelector(".title__between")
 let headingThree = document.querySelectorAll(".title__between");
 let headingThreeNext = headingThree[1];
+let title = document.querySelector(".form__title");
 // let headingOne = document.getElementById("hello");
 // let headingTwo = document.getElementsByTagName("h2")[0];
 // let headingTwo = document.getElementsByClassName("title__between");
@@ -704,7 +705,7 @@ let headingThreeNext = headingThree[1];
 let anotherHeadingOne = (node, color = "lightblue") => {
     node.style.color = color;
     node.style.backgroundColor = "#476a6b";
-    node.style.borderRadius = "10px";
+    node.style.borderRadius = "6px";
     node.style.transition = "0.5s";
     node.style.width = "100%";
 }
@@ -752,6 +753,62 @@ headingTwo.addEventListener("click", () => {
         headingTwo.style.color = "lightskyblue";
     }
 })
+
+/////////////animationTitle///////////////
+let animationTitle = (node) => {
+    node.classList.add("active");
+};
+
+let animationTitleGet = (get) => {
+    if(get.classList.contains("active")) {
+        get.classList.remove("active");
+    }
+};
+
+let trans = (node) => {
+    node.classList.add("trans");
+}
+
+let transGet = (get) => {
+    if(get.classList.contains("trans")) {
+        get.classList.remove("trans");
+    }
+};
+
+let animationTime = (wait = 1200, some = 2200, waitToo = 3000, someToo = 3800) => {
+    let promise = new Promise(resolve => {
+        setTimeout(() => {
+            resolve(animationTitle(title));
+        }, wait)
+        setTimeout(() => {
+            resolve(animationTitleGet(title));
+        }, some)
+        setTimeout(() => {
+            resolve(trans(title));
+        }, waitToo)
+        setTimeout(() => {
+            resolve(transGet(title));
+        }, someToo)
+    })
+    return promise;
+}
+
+let awaitAnimation = async () => {
+    try {
+        await animationTime();
+    } catch(e){
+        console.log(e);
+    }
+}
+
+awaitAnimation();
+/////////////////////////////////////finished easy JavaScript////////////////////////////////////////////
+
+
+
+
+
+
 
 
 

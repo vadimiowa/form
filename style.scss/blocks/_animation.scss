@@ -1,0 +1,6 @@
+.form__title.active {
+    transform: matrix3d(1, 0, 0, 0.003, 0, 1, 0, 0, 0, 0, 1, 0, 111, 0, 0, 1);
+}
+.form__title.trans {
+    transform: translateX(50px);
+}
