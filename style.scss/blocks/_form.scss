@@ -52,7 +52,7 @@
     color: #fff;
     font-family: "open sans";
     font-weight: 300;
-    transition: 1s;
+    transition: 0.8s;
 }
 
 .forgotPass {
@@ -120,6 +120,7 @@
 
 .remember {
     display: flex;
+    align-items: center;
     width: 115px;
     margin-top: 20px;
     color: #fff;

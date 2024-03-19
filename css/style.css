@@ -75,7 +75,7 @@ body {
   color: #fff;
   font-family: "open sans";
   font-weight: 300;
-  transition: 1s;
+  transition: 0.8s;
 }
 
 .forgotPass {
@@ -147,6 +147,7 @@ body {
 
 .remember {
   display: flex;
+  align-items: center;
   width: 115px;
   margin-top: 20px;
   color: #fff;
@@ -214,4 +215,5 @@ body {
 
 .form__title.trans {
   transform: translateX(50px);
+  color: #5beeff;
 }/*# sourceMappingURL=style.css.map */

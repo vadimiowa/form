@@ -775,7 +775,7 @@ let transGet = (get) => {
     }
 };
 
-let animationTime = (wait = 1200, some = 2200, waitToo = 3000, someToo = 3800) => {
+let animationTime = (wait = 1200, some = 2200, waitToo = 3000, someToo = 4000) => {
     let promise = new Promise(resolve => {
         setTimeout(() => {
             resolve(animationTitle(title));
