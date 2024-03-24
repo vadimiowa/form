@@ -691,6 +691,11 @@ let headingTwo = document.querySelector(".title__between")
 let headingThree = document.querySelectorAll(".title__between");
 let headingThreeNext = headingThree[1];
 let title = document.querySelector(".form__title");
+let signIn = document.querySelector(".email__title");
+
+let tiTop = document.querySelector(".title__to");
+let tiBet = document.querySelector(".title__bet");
+let tiBut = document.querySelector(".title__button");
 // let headingOne = document.getElementById("hello");
 // let headingTwo = document.getElementsByTagName("h2")[0];
 // let headingTwo = document.getElementsByClassName("title__between");
@@ -755,40 +760,33 @@ headingTwo.addEventListener("click", () => {
 })
 
 /////////////animationTitle///////////////
-let animationTitle = (node) => {
+let addSpeed = (node) => {
     node.classList.add("active");
-};
-
-let animationTitleGet = (get) => {
-    if(get.classList.contains("active")) {
-        get.classList.remove("active");
-    }
-};
-
-let trans = (node) => {
-    node.classList.add("trans");
 }
 
-let transGet = (get) => {
-    if(get.classList.contains("trans")) {
-        get.classList.remove("trans");
-    }
-};
+let addSpeedBack = (node) => {
+    node.classList.add("back")
+    ? node.classList.contains("back") : node.classList.remove("active");
+}
 
-let animationTime = (wait = 1200, some = 2200, waitToo = 3000, someToo = 4000) => {
+let rotate = (node) => {
+    node.classList.add("rotate");
+}
+
+let animationTime = (top = 1000, bet = 200, but = 1500, back = 2500) => {
     let promise = new Promise(resolve => {
         setTimeout(() => {
-            resolve(animationTitle(title));
-        }, wait)
+            resolve(addSpeed(tiTop));
+        }, top)
         setTimeout(() => {
-            resolve(animationTitleGet(title));
-        }, some)
+            resolve(addSpeed(tiBet));
+        }, bet)
         setTimeout(() => {
-            resolve(trans(title));
-        }, waitToo)
+            resolve(addSpeed(tiBut));
+        }, but)
         setTimeout(() => {
-            resolve(transGet(title));
-        }, someToo)
+            resolve(addSpeedBack(tiBut));
+        }, back)
     })
     return promise;
 }

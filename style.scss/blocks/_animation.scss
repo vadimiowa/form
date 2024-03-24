@@ -1,7 +1,12 @@
-.form__title.active {
-    transform: matrix3d(1, 0, 0, 0.003, 0, 1, 0, 0, 0, 0, 1, 0, 111, 0, 0, 1);
+.title__to.active {
+    transform: translateX(0);
 }
-.form__title.trans {
-    transform: translateX(50px);
-    color: #5beeff;
+.title__bet.active {
+    transform: translateX(0);
+}
+.title__button.active {
+    transform: translateX(70px);
+}
+.title__button.back {
+    transform: translateX(0px);
 }

@@ -68,6 +68,21 @@ body {
   border-right: 1px solid rgba(255, 255, 255, 0.1294117647);
 }
 
+.title__to {
+  transform: translateX(-1500px);
+  transition: 1s;
+}
+
+.title__bet {
+  transform: translateX(-1500px);
+  transition: 1s;
+}
+
+.title__button {
+  transform: translateX(-1500px);
+  transition: 1s;
+}
+
 .form__title {
   width: 100%;
   max-width: 320px;
@@ -125,6 +140,7 @@ body {
   font-family: "open sans";
   font-weight: 300;
   font-size: 25px;
+  transition: 0.5s;
 }
 
 .email__title.active {
@@ -208,12 +224,31 @@ body {
   .forgotPass {
     margin-top: 50px;
   }
+  .title__to {
+    transform: translateX(-600px);
+    transition: 1s;
+  }
+  .title__bet {
+    transform: translateX(-600px);
+    transition: 1s;
+  }
+  .title__button {
+    transform: translateX(-600px);
+    transition: 1s;
+  }
 }
-.form__title.active {
-  transform: matrix3d(1, 0, 0, 0.003, 0, 1, 0, 0, 0, 0, 1, 0, 111, 0, 0, 1);
+.title__to.active {
+  transform: translateX(0);
 }
 
-.form__title.trans {
-  transform: translateX(50px);
-  color: #5beeff;
+.title__bet.active {
+  transform: translateX(0);
+}
+
+.title__button.active {
+  transform: translateX(70px);
+}
+
+.title__button.back {
+  transform: translateX(0px);
 }/*# sourceMappingURL=style.css.map */

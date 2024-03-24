@@ -91,22 +91,90 @@ Array.prototype.multBy = function(n) {
 
 // console.log(forArray.multBy(20));
 // console.log(forThisArray.multBy(10));
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-let some = [700, 400, 500, 800];
+let option = [10, 40, 50, 80, 30];
 
-let mathSome = (arr, y) => {
-    return arr.map((i) => {
-        return i * y;
+Array.prototype.always = function(n) {
+    return this.map(() => {
+        return Math.floor(Math.random() * n);
     })
 }
 
-Array.prototype.give = function(n) {
-    return this.map((i) => {
-        return i * n;
-    })
+// console.log(option.always(1000));
+
+
+
+///////////////////////////////////lesson 3 closure///////////////////////////////////////////
+let createCalcFunction = (n) => {
+    return () => {
+        console.log(1000 * n);
+    }
 }
 
-console.log(some.give(5));
+let calc = createCalcFunction(50);
+// calc();
+
+let createIncrementor = (n) => {
+    return (num) => {
+        return n + num;
+    }
+}
+
+let addOne = createIncrementor(1);
+let addTen = createIncrementor(10);
+
+// console.log(addOne(10));
+// console.log(addOne(41));
+
+// console.log(addTen(10));
+// console.log(addTen(41));
+
+let urlGenerator = (domain) => {
+    return (url) => {
+        return `https://${url}.${domain}`;
+    }
+}
+
+let comUrl = urlGenerator("com");
+let uaUrl = urlGenerator("ua");
+
+// console.log(comUrl("google"));
+// console.log(comUrl("netflix"));
+// console.log(uaUrl("epicentr"));
+// console.log(uaUrl("olx"));
+
+
+function bind(fn, context) {
+    return () => {
+        fn.call(context);
+    }
+}
+
+function logPerson() {
+    console.log(`Person: ${this.name} ${this.age} ${this.job}`);
+}
+
+let person1 = {
+    name: "Vadim",
+    age: 22,
+    job: "software front-end developer"
+}
+
+let person2 = {
+    name: "Sasha",
+    age: 25,
+    job: "software back-end developer"
+}
+
+// bind(logPerson, person1)();
+// bind(logPerson, person2)();
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 
 
 
