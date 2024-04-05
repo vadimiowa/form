@@ -169,7 +169,127 @@ let person2 = {
 // bind(logPerson, person2)();
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////lesson 4 async//////////////////////////////////////
+// /* Event loop */
+// console.log("Start");
+// console.log("Start 2");
+
+// let timeOut2sec = () => {
+//     console.log("Time out two sec");
+// }
+
+// setTimeout(() => {
+//     console.log("Start timeout, after 2000 seconds");
+// }, 2000);
+
+// setTimeout(timeOut2sec, 2500);
+
+// console.log("End");
+
+
+//////////////////////////////////////lesson 5 promise////////////////////////////////////
+// console.log("Request data...");
+// setTimeout(() => {
+//     console.log("Preparing data...");
+
+//     const backendData = {
+//         server: "aws",
+//         port: 2000,
+//         status: "working"
+//     }
+
+//     setTimeout(() => {
+//         backendData.modified = true;
+//         console.log("Data received", backendData);
+//     }, 2000)
+// }, 2000)
+
+// let p1 = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         console.log("Preparing data...")
+//         const backendData = {
+//             server: "aws",
+//             port: 2000,
+//             status: "working"
+//         }
+//         resolve(backendData)
+//     }, 2000)
+// })
+
+// p1.then((data) => {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             data.modified = true;
+//             resolve(data);
+//         }, 2000)
+//     })
+// }).then(clientData => {
+//     console.log("Data received: ", clientData);
+//     return new Promise(resolve => {
+//         setTimeout(() => {
+//             clientData.fromPromise = true;
+//             resolve(clientData);
+//         }, 2000)
+//     })
+// }).then((from) => {
+//     console.log("from promise: ", from);
+// })
+// .catch(er => console.error("Error: ", er))
+// .finally(() => console.log("Finally"))
+
+let sleep = ms => new Promise(resolve => setTimeout(() => resolve(), ms));
+// sleep(2000).then(() => console.log("After two seconds"))
+// sleep(3000).then(() => console.log("After three seconds"))
+
+// Promise.all([sleep(2000), sleep(5000)]).then(() => {
+//     console.log("All promises")
+// })
+// Promise.race([sleep(2000), sleep(5000)]).then(() => {
+//     console.log("Rece promises")
+// })
+
+
+
+//////////////////////////////////lesson 6 Object.create [getters, setters]//////////////////////////////////
+console.log("await");
+
+let onePromise = new Promise(resolve => {
+    setTimeout(() => {
+        let get = "We're get this promise...";
+        resolve(get);
+    }, 2000)
+})
+
+onePromise.then((e) => {
+    console.log(e);
+    return new Promise(resolve => {
+        setTimeout(() => {
+            let ios = {
+                version: 13,
+                status: true,
+                price: 80000,
+                currency: "usd"
+            }
+            resolve(ios);
+        }, 2000)
+    })
+}).then((e) => {
+    console.log(e);
+    return new Promise(resolve => {
+        setTimeout(() => {
+            e.interestPrice = 50000;
+            resolve(e);
+        }, 1000)
+    })
+}).then(e => {
+    console.log(e);
+})
+
+
+
+
+
+
 
 
 

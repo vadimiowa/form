@@ -769,10 +769,6 @@ let addSpeedBack = (node) => {
     ? node.classList.contains("back") : node.classList.remove("active");
 }
 
-let rotate = (node) => {
-    node.classList.add("rotate");
-}
-
 let animationTime = (top = 1000, bet = 200, but = 1500, back = 2500) => {
     let promise = new Promise(resolve => {
         setTimeout(() => {
@@ -801,9 +797,6 @@ let awaitAnimation = async () => {
 
 awaitAnimation();
 /////////////////////////////////////finished easy JavaScript////////////////////////////////////////////
-
-
-
 
 
 
