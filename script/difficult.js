@@ -248,48 +248,82 @@ let sleep = ms => new Promise(resolve => setTimeout(() => resolve(), ms));
 //     console.log("Rece promises")
 // })
 
+// console.log("await");
 
+// let onePromise = new Promise(resolve => {
+//     setTimeout(() => {
+//         let get = "We're get this promise...";
+//         resolve(get);
+//     }, 2000)
+// })
+
+// onePromise.then((e) => {
+//     console.log(e);
+//     return new Promise(resolve => {
+//         setTimeout(() => {
+//             let ios = {
+//                 version: 13,
+//                 status: true,
+//                 price: 80000,
+//                 currency: "usd"
+//             }
+//             resolve(ios);
+//         }, 2000)
+//     })
+// }).then((e) => {
+//     console.log(e);
+//     return new Promise(resolve => {
+//         setTimeout(() => {
+//             e.interestPrice = 50000;
+//             resolve(e);
+//         }, 1000)
+//     })
+// }).then(e => {
+//     console.log(e);
+// })
 
 //////////////////////////////////lesson 6 Object.create [getters, setters]//////////////////////////////////
-console.log("await");
-
-let onePromise = new Promise(resolve => {
-    setTimeout(() => {
-        let get = "We're get this promise...";
-        resolve(get);
-    }, 2000)
+let about = Object.create(
+{
+    calculataAge() {
+        console.log("Age: ", new Date().getFullYear() - this.birthYear)
+    }
+},
+{
+    name: {
+        value: "Vadim",
+        enumerable: true,
+        writable: true,
+        configurable: true
+    },
+    birthYear: {
+        value: 2002,
+        enumerable: true, // for cicle
+        writable: false, // for other value
+        configurable: false // for delete
+    },
+    age: {
+        get() {
+            return new Date().getFullYear() - this.birthYear
+        },
+        set(value) {
+            document.body.style.background = "red"
+            console.log("Set age", value)
+        },
+        enumerable: true
+    }
 })
 
-onePromise.then((e) => {
-    console.log(e);
-    return new Promise(resolve => {
-        setTimeout(() => {
-            let ios = {
-                version: 13,
-                status: true,
-                price: 80000,
-                currency: "usd"
-            }
-            resolve(ios);
-        }, 2000)
-    })
-}).then((e) => {
-    console.log(e);
-    return new Promise(resolve => {
-        setTimeout(() => {
-            e.interestPrice = 50000;
-            resolve(e);
-        }, 1000)
-    })
-}).then(e => {
-    console.log(e);
-})
+// about.name = "Max"
+// delete about.name;
 
+// for(let key in about) {
+//     if(about.hasOwnProperty(key)) {
+//         console.log("Key:", key, about[key]);
+//     }
+// }
 
-
-
-
-
+///////////////////////////////////////////////////ES-6//////////////////////////////////////////////////////
 
 
 

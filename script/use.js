@@ -797,8 +797,41 @@ let awaitAnimation = async () => {
 
 awaitAnimation();
 /////////////////////////////////////finished easy JavaScript////////////////////////////////////////////
+let theme = document.querySelector(".theme");
+let themeClick = document.querySelector(".theme__click");
+let themeLight = document.querySelector(".theme__light");
+let themeDark = document.querySelector(".theme__dark");
 
+let body = document.querySelector("body");
 
+let otherStyles = (node) => {
+    node.classList.add("active");
+}
+
+let waitClickTheme = (node) => {
+    node.classList.toggle("active");
+}
+
+let waitBack = (node) => {
+    node.classList.remove("active");
+}
+
+themeClick.addEventListener("click", () => {
+    waitClickTheme(theme);
+    waitClickTheme(themeClick);
+});
+
+themeLight.addEventListener("click", () => {
+    waitBack(themeClick);
+    waitBack(theme);
+    otherStyles(body);
+});
+
+themeDark.addEventListener("click", () => {
+    waitBack(themeClick);
+    waitBack(theme);
+    waitBack(body);
+});
 
 
 

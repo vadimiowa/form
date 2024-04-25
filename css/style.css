@@ -7,6 +7,10 @@ body {
   margin: 0;
 }
 
+body.active {
+  background: #a8a47b;
+}
+
 *,
 *:before,
 *:after {
@@ -251,4 +255,70 @@ body {
 
 .title__button.back {
   transform: translateX(0px);
+}
+
+.forYou {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hiddenTheme {
+  overflow: hidden;
+  border-radius: 20px;
+  margin-top: 40px;
+}
+
+.theme {
+  display: flex;
+  position: relative;
+  left: 90px;
+  transition: 0.3s;
+  background: #fff;
+  border-radius: 20px;
+}
+
+.theme.active {
+  left: 0px;
+}
+
+.theme__click {
+  width: 20px;
+  height: 20px;
+  border-top: 3px solid #000;
+  border-left: 3px solid #000;
+  transform: rotate(-45deg);
+  margin-left: 15px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.theme__click.active {
+  transform: rotate(135deg);
+}
+
+.theme__light {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.theme__dark {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.io {
+  display: block;
+  height: auto;
+  width: 25px;
 }/*# sourceMappingURL=style.css.map */
