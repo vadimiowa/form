@@ -796,6 +796,7 @@ let awaitAnimation = async () => {
 }
 
 awaitAnimation();
+
 /////////////////////////////////////finished easy JavaScript////////////////////////////////////////////
 let theme = document.querySelector(".theme");
 let themeClick = document.querySelector(".theme__click");

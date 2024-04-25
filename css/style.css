@@ -8,7 +8,7 @@ body {
 }
 
 body.active {
-  background: #a8a47b;
+  background: #82858d;
 }
 
 *,
@@ -209,54 +209,6 @@ body.active {
   padding: 20px;
 }
 
-@media (max-width: 690px) {
-  .form {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .form__content {
-    margin: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1294117647);
-    border-right: none;
-  }
-  .buttom_for_reset {
-    margin-bottom: 30px;
-  }
-  .forgot {
-    margin: 10px 0px 10px 0px;
-  }
-  .forgotPass {
-    margin-top: 50px;
-  }
-  .title__to {
-    transform: translateX(-600px);
-    transition: 1s;
-  }
-  .title__bet {
-    transform: translateX(-600px);
-    transition: 1s;
-  }
-  .title__button {
-    transform: translateX(-600px);
-    transition: 1s;
-  }
-}
-.title__to.active {
-  transform: translateX(0);
-}
-
-.title__bet.active {
-  transform: translateX(0);
-}
-
-.title__button.active {
-  transform: translateX(70px);
-}
-
-.title__button.back {
-  transform: translateX(0px);
-}
-
 .forYou {
   display: flex;
   align-items: center;
@@ -266,7 +218,8 @@ body.active {
 .hiddenTheme {
   overflow: hidden;
   border-radius: 20px;
-  margin-top: 40px;
+  margin-top: 128px;
+  margin-right: 15px;
 }
 
 .theme {
@@ -321,4 +274,67 @@ body.active {
   display: block;
   height: auto;
   width: 25px;
+}
+
+.title__to.active {
+  transform: translateX(0);
+}
+
+.title__bet.active {
+  transform: translateX(0);
+}
+
+.title__button.active {
+  transform: translateX(70px);
+}
+
+.title__button.back {
+  transform: translateX(0px);
+}
+
+@media (max-width: 690px) {
+  .form {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .form__content {
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1294117647);
+    border-right: none;
+  }
+  .buttom_for_reset {
+    margin-bottom: 30px;
+  }
+  .forgot {
+    margin: 10px 0px 10px 0px;
+  }
+  .forgotPass {
+    margin-top: 50px;
+  }
+  .title__to {
+    transform: translateX(-600px);
+    transition: 1s;
+  }
+  .title__bet {
+    transform: translateX(-600px);
+    transition: 1s;
+  }
+  .title__button {
+    transform: translateX(-600px);
+    transition: 1s;
+  }
+  .hiddenTheme {
+    overflow: hidden;
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-right: 0px;
+  }
+  .theme {
+    display: flex;
+    position: relative;
+    left: 90px;
+    transition: 0.3s;
+    background: #fff;
+    border-radius: 20px;
+  }
 }/*# sourceMappingURL=style.css.map */

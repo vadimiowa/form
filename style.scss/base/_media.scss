@@ -35,4 +35,21 @@
         transform: translateX(-600px);
         transition: 1s;
     }
+
+/////////////////////////////////////////////Theme/////////////////////////////
+    .hiddenTheme {
+        overflow: hidden;
+        border-radius: 20px;
+        margin-top: 40px;
+        margin-right: 0px;
+    }
+
+    .theme {
+        display: flex;
+        position: relative;
+        left: 90px;
+        transition: 0.3s;
+        background: #fff;
+        border-radius: 20px;
+    }
 }
