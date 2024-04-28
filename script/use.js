@@ -804,6 +804,13 @@ let themeLight = document.querySelector(".theme__light");
 let themeDark = document.querySelector(".theme__dark");
 
 let body = document.querySelector("body");
+let titleTop = document.querySelector(".form__title");
+let email = document.querySelector(".email__data");
+let emailTwo = document.querySelector(".email__data--pass");
+let forget = document.querySelector(".forgot");
+let remember = document.querySelector(".remember__text");
+let emailTitle = document.querySelector(".email__title");
+
 
 let otherStyles = (node) => {
     node.classList.add("active");
@@ -826,12 +833,24 @@ themeLight.addEventListener("click", () => {
     waitBack(themeClick);
     waitBack(theme);
     otherStyles(body);
+    otherStyles(titleTop);
+    otherStyles(email);
+    otherStyles(emailTwo);
+    otherStyles(forget);
+    otherStyles(remember);
+    otherStyles(emailTitle);
 });
 
 themeDark.addEventListener("click", () => {
     waitBack(themeClick);
     waitBack(theme);
     waitBack(body);
+    waitBack(titleTop);
+    waitBack(email);
+    waitBack(emailTwo);
+    waitBack(forget);
+    waitBack(remember);
+    waitBack(emailTitle);
 });
 
 
