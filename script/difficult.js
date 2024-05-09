@@ -283,12 +283,7 @@ let sleep = ms => new Promise(resolve => setTimeout(() => resolve(), ms));
 // })
 
 //////////////////////////////////lesson 6 Object.create [getters, setters]//////////////////////////////////
-let about = Object.create(
-{
-    calculataAge() {
-        console.log("Age: ", new Date().getFullYear() - this.birthYear)
-    }
-},
+let about = Object.create({calculataAge() {console.log("Age: ", new Date().getFullYear() - this.birthYear)}},
 {
     name: {
         value: "Vadim",
@@ -316,20 +311,178 @@ let about = Object.create(
 
 // about.name = "Max"
 // delete about.name;
-
 // for(let key in about) {
 //     if(about.hasOwnProperty(key)) {
 //         console.log("Key:", key, about[key]);
 //     }
 // }
 
-///////////////////////////////////////////////////ES-6//////////////////////////////////////////////////////
+let acar = Object.create({
+    info() {
+        console.log("This car is new");
+    }
+}, {
+    brand: {
+        value: "BMW",
+        enumerable: true
+    },
+    model: {
+        value: 5,
+        enumerable: true
+    },
+    price: {
+        value: 25000,
+        enumerable: true
+    },
+    currency: {
+        value: "USD",
+        enumerable: true
+    },
+    inside: {
+        get() {
+            return this.currency;
+        },
+        set(value) {
+            console.log("New currency: ", value);
+        }
+    }
+})
 
 
+let inputEmail = document.querySelector(".email__data");
+let input = Object.create({}, {
+    element: {
+        value: inputEmail,
+        enumerable: true
+    },
+    num: {
+        value: 9696
+    },
+    working: {
+        get() {
+            let into = this.element.addEventListener("input", () => {
+                console.log(this.element.value);
+                if(this.element.value === "Vadim") {
+                    console.log(true);
+                }
+            })
+            return into;
+        },
+        set(value) {
+            console.log("New element: ", value);
+        }
+    }
+})
+
+input.working;
+
+////////////////////////////////////////////lesson 7 ES-6 class//////////////////////////////////////////////
+// let animal = {
+//     name: "Vadim",
+//     age: 22,
+//     hasTail: true
+// }
+
+// class Animal {
+//     static type = "Animal"
+
+//     constructor(options) {
+//         this.name = options.name
+//         this.age = options.age
+//         this.hasTail = options.hasTail
+//     }
+
+//     voice() {
+//         console.log("i'm Animal!")
+//     }
+// }
+
+// let animal = new Animal({
+//     name: "Animal",
+//     age: 5,
+//     hasTail: true
+// })
+
+// console.log(animal);
+
+// class Cat extends Animal {
+//     static type = "CAT";
+
+//     constructor(options) {
+//         super(options)
+//         this.color = options.color
+//     }
+
+//     voice() {
+//         super.voice()
+//         console.log("I'm cat!!!")
+//     }
+
+//     get ageInfo() {
+//         return this.age * 7;
+//     }
+
+//     set ageInfo(newAge) {
+//         this.age = newAge
+//     }
+// }
+
+// let cat = new Cat({
+//     name: "Cat",
+//     age: 8,
+//     hasTail: true,
+//     color: "Black"
+// })
 
 
+class Component {
+    constructor(selector) {
+        this.$el = document.querySelector(selector);
+    }
+
+    hide() {
+        this.$el.style.display = "none";
+    }
+
+    show() {
+        this.$el.style.display = "block";
+    }
+}
+
+class Box extends Component {
+    constructor(options) {
+        super(options.selector)
+        this.$el.style.width = this.$el.style.height = options.size + "px"
+        this.$el.style.background = options.color
+    }
+}
 
 
+// let box1 = new Box({
+//     selector: "#box1",
+//     size: 100,
+//     color: "red"
+// })
+
+// let box2 = new Box({
+//     selector: "#box2",
+//     size: 120,
+//     color: "blue"
+// })
+
+class Circle extends Box {
+    constructor(options) {
+        super(options)
+
+        this.$el.style.borderRadius = "50%"
+    }
+}
+
+// let ssh = new Circle({
+//     selector: "#circle",
+//     size: 90,
+//     color: "blue"
+// })
 
 
 

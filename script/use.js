@@ -769,7 +769,11 @@ let addSpeedBack = (node) => {
     ? node.classList.contains("back") : node.classList.remove("active");
 }
 
-let animationTime = (top = 1000, bet = 200, but = 1500, back = 2500) => {
+let noneTransition = (node) => {
+    node.classList.add("none");
+}
+
+let animationTime = (top = 1000, bet = 200, but = 1500, back = 2500, none = 3500) => {
     let promise = new Promise(resolve => {
         setTimeout(() => {
             resolve(addSpeed(tiTop));
@@ -783,6 +787,15 @@ let animationTime = (top = 1000, bet = 200, but = 1500, back = 2500) => {
         setTimeout(() => {
             resolve(addSpeedBack(tiBut));
         }, back)
+        setTimeout(() => {
+            resolve(noneTransition(tiTop));
+        }, none)
+        setTimeout(() => {
+            resolve(noneTransition(tiBet));
+        }, none)
+        setTimeout(() => {
+            resolve(noneTransition(tiBut));
+        }, none)
     })
     return promise;
 }
