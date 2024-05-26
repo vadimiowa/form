@@ -5,6 +5,7 @@ body {
   background: #3c3f46;
   height: 100vh;
   margin: 0;
+  overflow: hidden;
 }
 
 body.active {
@@ -331,6 +332,34 @@ body.active {
 
 .title__button.none {
   transition: none;
+}
+
+.other {
+  position: relative;
+  display: flex;
+}
+
+.error {
+  display: flex;
+  position: absolute;
+  right: -2000px;
+  bottom: 0;
+  width: 200px;
+  height: 27px;
+  border-radius: 7px;
+  background: red;
+  transition: 0.6s;
+  color: #fff;
+  font-family: "open sans";
+  font-weight: 400;
+  font-size: 15px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 30px red;
+}
+
+.error.active {
+  right: 0;
 }
 
 @media (max-width: 690px) {

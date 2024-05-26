@@ -348,33 +348,121 @@ let acar = Object.create({
     }
 })
 
+/////////////////////////////////////////////////////////////////
+let getError = (node) => {
+    node.classList.add("active");
+}
+let removeError = (node) => {
+    node.classList.remove("active");
+}
 
-let inputEmail = document.querySelector(".email__data");
-let input = Object.create({}, {
-    element: {
-        value: inputEmail,
-        enumerable: true
+let error = Object.create({}, {
+    input: {
+        value: document.querySelector(".email__data")
     },
-    num: {
-        value: 9696
+    pass: {
+        value: document.querySelector(".email__data--pass")
     },
-    working: {
+    content: {
+        value: document.querySelector(".error")
+    },
+    buttonGet: {
+        value: document.querySelector(".button")
+    },
+    show: {
         get() {
-            let into = this.element.addEventListener("input", () => {
-                console.log(this.element.value);
-                if(this.element.value === "Vadim") {
-                    console.log(true);
+            return this.input.addEventListener("input", () => {
+                this.content.style.backgroundColor = "red";
+                this.content.style.boxShadow = "0px 4px 30px red";
+                if(this.input.value.length < 8) {
+                    this.content.innerHTML = "Name: minimum 8 value";
+                    getError(this.content);
+                } else if(this.input.value.length > 8) {
+                    this.content.innerHTML = "Name: So much value";
+                    getError(this.content);
+                } else {
+                    removeError(this.content);
                 }
             })
-            return into;
-        },
-        set(value) {
-            console.log("New element: ", value);
+        }
+    },
+    showPassError: {
+        get() {
+            return this.pass.addEventListener("input", () => {
+                this.content.style.backgroundColor = "red";
+                this.content.style.boxShadow = "0px 4px 30px red";
+                if(this.pass.value.length < 8) {
+                    this.content.innerHTML = "Pass: minimum 8 value";
+                    getError(this.content);
+                } else if(this.pass.value.length > 8) {
+                    this.content.innerHTML = "Pass: So much value";
+                    getError(this.content);
+                } else {
+                    removeError(this.content);
+                }
+            })
+        }
+    },
+    click: {
+        get() {
+            return this.buttonGet.addEventListener("click", () => {
+                if(this.input.value.length == 8 && this.pass.value.length == 8) {
+                    this.content.innerHTML = "Your registered";
+                    this.content.style.backgroundColor = "green";
+                    this.content.style.boxShadow = "0px 4px 30px green";
+                    getError(this.content);
+                } else if(this.input.value.length != 8 || this.pass.value.length != 8) {
+                    this.content.innerHTML = "Need to complete form";
+                }
+                new Promise(resolve => {
+                    setTimeout(() => {
+                        if(this.content.style.backgroundColor = "green") {
+                            resolve(removeError(this.content));
+                        }
+                    }, 2500)
+                })
+            })
         }
     }
 })
 
-input.working;
+error.show;
+error.showPassError;
+error.click;
+
+/////////////////////////////////////////////////////////////////
+let user = {
+    name: "Vadim",
+    surname: "Sytnyk",
+
+    get fullName() {
+        return `${this.name} ${this.surname}`;
+    },
+
+    set fullName(value) {
+        [this.name, this.surname] = value.split(" ");
+    }
+}
+
+// user.fullName = "New Name";
+// console.log(user.fullName);
+
+
+let infoUser = {
+    get name() {
+        return this._name;
+    },
+
+    set name(value) {
+        if(value.length < 4) {
+            console.log("Error!!!");
+        } else {
+            console.log(this._name = value);
+        }
+    }
+}
+
+// infoUser.name = "Vadim Sytnyk"
 
 ////////////////////////////////////////////lesson 7 ES-6 class//////////////////////////////////////////////
 // let animal = {
@@ -483,6 +571,8 @@ class Circle extends Box {
 //     size: 90,
 //     color: "blue"
 // })
+
+
 
 
 
