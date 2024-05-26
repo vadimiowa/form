@@ -5,7 +5,6 @@ body {
   background: #3c3f46;
   height: 100vh;
   margin: 0;
-  overflow: hidden;
 }
 
 body.active {
@@ -360,6 +359,11 @@ body.active {
 
 .error.active {
   right: 0;
+}
+
+.main {
+  overflow: hidden;
+  width: 100%;
 }
 
 @media (max-width: 690px) {
