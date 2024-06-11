@@ -416,10 +416,15 @@ let error = Object.create({}, {
                 }
                 new Promise(resolve => {
                     setTimeout(() => {
-                        if(this.content.style.backgroundColor = "green") {
+                        if(this.content.style.backgroundColor == "green") {
                             resolve(removeError(this.content));
                         }
                     }, 2500)
+                    setTimeout(() => {
+                        if(this.content.style.backgroundColor == "green") {
+                            document.location.reload();
+                        }
+                    }, 3000)
                 })
             })
         }
@@ -464,98 +469,107 @@ let infoUser = {
 
 // infoUser.name = "Vadim Sytnyk"
 
+let ask = {
+    get word() {
+        return this._word;
+    },
+
+    set word(value) {
+        if(value.length < 5 ) {
+            console.log("Error: You'll need to wrirte minimum 5 velue");
+        } else {
+            console.log(this._word = value);
+        }
+    }
+}
+
+// ask.word = "I talked with her on the phone an hour ago here";
+// ask.word = "New";
+
 ////////////////////////////////////////////lesson 7 ES-6 class//////////////////////////////////////////////
 // let animal = {
-//     name: "Vadim",
-//     age: 22,
-//     hasTail: true
-// }
-
-// class Animal {
-//     static type = "Animal"
-
-//     constructor(options) {
-//         this.name = options.name
-//         this.age = options.age
-//         this.hasTail = options.hasTail
-//     }
-
-//     voice() {
-//         console.log("i'm Animal!")
-//     }
-// }
-
-// let animal = new Animal({
 //     name: "Animal",
 //     age: 5,
 //     hasTail: true
-// })
-
-// console.log(animal);
-
-// class Cat extends Animal {
-//     static type = "CAT";
-
-//     constructor(options) {
-//         super(options)
-//         this.color = options.color
-//     }
-
-//     voice() {
-//         super.voice()
-//         console.log("I'm cat!!!")
-//     }
-
-//     get ageInfo() {
-//         return this.age * 7;
-//     }
-
-//     set ageInfo(newAge) {
-//         this.age = newAge
-//     }
 // }
 
-// let cat = new Cat({
-//     name: "Cat",
-//     age: 8,
-//     hasTail: true,
-//     color: "Black"
-// })
+class Animal {
 
+    static type = "ANIMAL"
+
+    constructor(options) {
+        this.name = options.name
+        this.age = options.age
+        this.hasTail = options.hasTail
+    }
+
+    voice() {
+        console.log("I'm animal")
+    }
+}
+
+let animal = new Animal({
+    name: "Animal",
+    age: 5,
+    hasTail: true
+})
+
+class Cat extends Animal {
+    static type = "CAT"
+    constructor(options) {
+        super(options)
+        this.color = options.color
+    }
+
+    voice() {
+        super.voice()
+        console.log("I'm cat")
+    }
+
+    get ageInfo() {
+        return this.age * 7
+    }
+
+    set ageInfo(newAge) {
+        this.age = newAge;
+        console.log("NEW")
+    }
+}
+
+let cat = new Cat({
+    name: "Cat",
+    age: 7,
+    hasTail: true,
+    color: "Black"
+})
 
 class Component {
     constructor(selector) {
-        this.$el = document.querySelector(selector);
+        this.$el = document.querySelector(selector)
     }
 
     hide() {
-        this.$el.style.display = "none";
+        this.$el.style.display = "none"
     }
 
     show() {
-        this.$el.style.display = "block";
+        this.$el.style.display = "block"
     }
 }
 
 class Box extends Component {
     constructor(options) {
         super(options.selector)
+
         this.$el.style.width = this.$el.style.height = options.size + "px"
-        this.$el.style.background = options.color
+        this.$el.style.backgroundColor = options.color
     }
 }
-
 
 // let box1 = new Box({
 //     selector: "#box1",
 //     size: 100,
 //     color: "red"
-// })
-
-// let box2 = new Box({
-//     selector: "#box2",
-//     size: 120,
-//     color: "blue"
 // })
 
 class Circle extends Box {
@@ -566,24 +580,43 @@ class Circle extends Box {
     }
 }
 
-// let ssh = new Circle({
+// let cer = new Circle({
 //     selector: "#circle",
 //     size: 90,
-//     color: "blue"
+//     color: "green"
 // })
 
 
+//////////////////////////////////////////////////////////////////////////
+class Car {
+    constructor(options) {
+        this.brand = options.brand;
+        this.model = options.model;
+        this.price = options.price;
+        this.color = options.color;
+    }
 
+    inform() {
+        console.log("I talked with her on the phone an hour ago there");
+    }
+}
 
+class nextCar extends Car {
+    constructor(options) {
+        super(options)
+        this.allows = options.allows;
+    }
 
+    inform() {
+        super.inform();
+        console.log("And we'll decide to contine to create this project");
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
+let bmw = new nextCar({
+    brand: "BMW",
+    model: "5-siries",
+    price: 35000,
+    color: "Black",
+    allows: true
+})
