@@ -685,81 +685,109 @@ let multipleAsync = async () => {
 // multipleAsync();
 
 //////////////////////////////////////////////  DOM ELEMENTS  ///////////////////////////////////////////////
-// https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent
-let headingOne = document.querySelector(".title__top");
-let headingTwo = document.querySelector(".title__between")
-let headingThree = document.querySelectorAll(".title__between");
-let headingThreeNext = headingThree[1];
-let title = document.querySelector(".form__title");
-let signIn = document.querySelector(".email__title");
+// let link = headingTwo.querySelector("a");
+// link.addEventListener("click", (event) => {
+//     event.preventDefault();
+//     console.log("Click on link: ", event.target.getAttribute("href"));
+//     let url = event.target.getAttribute("href");
 
+//     window.location = url;
+// })
+
+/////////////overkill of elements//////////////
+
+// let numbes = [100, 200, 300, 400, 500];
+
+// setInterval(() => {
+//     numbes.length && console.log(numbes.shift());
+// }, 1000);
+
+// let leters = document.querySelectorAll(".title__name");
+let leter1 = document.querySelector(".title__name1");
+let leter2 = document.querySelector(".title__name2");
+let leter3 = document.querySelector(".title__name3");
+let leter4 = document.querySelector(".title__name4");
+let leter5 = document.querySelector(".title__name5");
+let leter6 = document.querySelector(".title__name6");
+let leter7 = document.querySelector(".title__name7");
+let leter8 = document.querySelector(".title__name8");
+let leter9 = document.querySelector(".title__name9");
+let leter10 = document.querySelector(".title__name10");
+let leter11 = document.querySelector(".title__name11");
+let leter12 = document.querySelector(".title__name12");
+let leter13 = document.querySelector(".title__name13");
+let leter14 = document.querySelector(".title__name14");
+let leter15 = document.querySelector(".title__name15");
+let leter16 = document.querySelector(".title__name16");
+let leter17 = document.querySelector(".title__name17");
+
+let addClass = (node) => {
+    node.classList.add("active");
+}
+
+let showAll = new Promise(resolve => {
+    setTimeout(() => {
+        resolve(addClass(leter1));
+    }, 300)
+    setTimeout(() => {
+        resolve(addClass(leter2));
+    }, 450)
+    setTimeout(() => {
+        resolve(addClass(leter3));
+    }, 600)
+    setTimeout(() => {
+        resolve(addClass(leter4));
+    }, 750)
+    setTimeout(() => {
+        resolve(addClass(leter5));
+    }, 900)
+    setTimeout(() => {
+        resolve(addClass(leter6));
+    }, 1050)
+    setTimeout(() => {
+        resolve(addClass(leter7));
+    }, 1200)
+    setTimeout(() => {
+        resolve(addClass(leter8));
+    }, 1350)
+    setTimeout(() => {
+        resolve(addClass(leter9));
+    }, 1500)
+    setTimeout(() => {
+        resolve(addClass(leter10));
+    }, 1650)
+    setTimeout(() => {
+        resolve(addClass(leter11));
+    }, 1800)
+    setTimeout(() => {
+        resolve(addClass(leter12));
+    }, 1950)
+    setTimeout(() => {
+        resolve(addClass(leter13));
+    }, 2100)
+    setTimeout(() => {
+        resolve(addClass(leter14));
+    }, 2250)
+    setTimeout(() => {
+        resolve(addClass(leter15));
+    }, 2400)
+    setTimeout(() => {
+        resolve(addClass(leter16));
+    }, 2550)
+    setTimeout(() => {
+        resolve(addClass(leter17));
+    }, 2700)
+})
+
+
+// I'll should to create this difficult function !!!!!
+
+
+/////////////animationTitle///////////////
 let tiTop = document.querySelector(".title__to");
 let tiBet = document.querySelector(".title__bet");
 let tiBut = document.querySelector(".title__button");
-// let headingOne = document.getElementById("hello");
-// let headingTwo = document.getElementsByTagName("h2")[0];
-// let headingTwo = document.getElementsByClassName("title__between");
-// let headingTwo = document.querySelector(".title__between").nextElementSibling;
-// let headingTwo = document.querySelector(".title__between");
-// let headingThree = headingTwo.nextElementSibling;
-// let h2List = document.querySelectorAll(".title__between");
-// let headingThree = h2List[1];
-// let headingThree = h2List[h2List.length -1];
-// console.log(headingThree);
 
-let anotherHeadingOne = (node, color = "lightblue") => {
-    node.style.color = color;
-    node.style.backgroundColor = "#476a6b";
-    node.style.borderRadius = "6px";
-    node.style.transition = "0.5s";
-    node.style.width = "100%";
-}
-
-let anotherHeadingTwo = (node, color = "lightskyblue") => {
-    node.style.color = color;
-    node.style.transition = "0.5s";
-}
-
-setTimeout(() => {
-    anotherHeadingOne(headingOne, "#85d7ff");
-}, 1200)
-
-let link = headingTwo.querySelector("a");
-link.addEventListener("click", (event) => {
-    event.preventDefault();
-    console.log("Click on link: ", event.target.getAttribute("href"));
-    let url = event.target.getAttribute("href");
-
-    window.location = url;
-})
-
-setTimeout(() => {
-    anotherHeadingTwo(link, "lightskyblue");
-}, 1200)
-
-setTimeout(() => {
-    anotherHeadingOne(headingThreeNext, "lightblue");
-}, 1200)
-
-headingThreeNext.onclick = () => {
-    if(headingThreeNext.style.color === "lightblue") {
-        headingThreeNext.style.color = "#ccc";
-        headingThreeNext.style.backgroundColor = "black";
-    } else {
-        headingThreeNext.style.color = "lightblue"
-        headingThreeNext.style.backgroundColor = "#476a6b";
-    }
-}
-
-headingTwo.addEventListener("click", () => {
-    if(headingTwo.style.color === "lightskyblue") {
-        headingTwo.style.color = "#ccc";
-    } else {
-        headingTwo.style.color = "lightskyblue";
-    }
-})
-
-/////////////animationTitle///////////////
 let addSpeed = (node) => {
     node.classList.add("active");
 }

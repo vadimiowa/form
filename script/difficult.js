@@ -413,6 +413,9 @@ let error = Object.create({}, {
                     getError(this.content);
                 } else if(this.input.value.length != 8 || this.pass.value.length != 8) {
                     this.content.innerHTML = "Need to complete form";
+                    setTimeout(() => {
+                            removeError(this.content);
+                    }, 2500)
                 }
                 new Promise(resolve => {
                     setTimeout(() => {
@@ -485,6 +488,38 @@ let ask = {
 
 // ask.word = "I talked with her on the phone an hour ago here";
 // ask.word = "New";
+
+let twoWords = {
+    one: "collaborate",
+    two: "company",
+
+    get up() {
+        return `${this.one} ${this.two}`
+    },
+    set up(value) {
+        [this.one, this.two] = value.split(" ");
+    }
+}
+
+twoWords.up = "provide requirements";
+// console.log(twoWords.up);
+
+
+function User(name, birthday) {
+    this.name = name;
+    this.birthday = birthday;
+
+    Object.defineProperty(this, "age", {
+        get() {
+            let todayYear = new Date().getFullYear();
+            return todayYear - this.birthday.getFullYear();
+        }
+    })
+}
+
+let ketti = new User("Ketti", new Date(2000, 5, 3));
+// console.log(ketti.birthday);
+// console.log(ketti.age);
 
 ////////////////////////////////////////////lesson 7 ES-6 class//////////////////////////////////////////////
 // let animal = {
@@ -560,7 +595,6 @@ class Component {
 class Box extends Component {
     constructor(options) {
         super(options.selector)
-
         this.$el.style.width = this.$el.style.height = options.size + "px"
         this.$el.style.backgroundColor = options.color
     }
@@ -620,3 +654,68 @@ let bmw = new nextCar({
     color: "Black",
     allows: true
 })
+
+
+//////////////////////////////////lesson 8 async / await / work with fetch//////////////////////////////////
+let provide = ms => {
+    return new Promise(resolve => setTimeout(() => resolve(), ms))
+}
+
+let url = "https://jsonplaceholder.typicode.com/posts";
+
+// function fetchTodos() {
+//     console.log("Fetch todo started...")
+//     return provide(2000)
+//     .then(() => fetch(url))
+//     .then(response => response.json())
+// }
+
+// fetchTodos()
+// .then(data => {
+//     console.log("Data: ", data);
+// })
+
+let fetchAsyncTodos = async () => {
+    console.log("Fetch todo started...")
+    try {
+        await provide(2000)
+        let response = await fetch(url)
+        let data = await response.json()
+        console.log("Data: ", data);
+    } catch(e) {
+        console.log(e);
+    }
+}
+
+// fetchAsyncTodos();
+
+//////////////////////////////////lesson 9//////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -26,41 +26,26 @@ body.active {
 }
 
 /* TITLE CONTENT */
-.form {
+.title {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.title {
-  color: #fff;
-  margin: 0 auto;
-  text-align: center;
-  margin-bottom: 40px;
-  margin-top: 15px;
+.title__text {
+  color: #7873ff;
+  font-size: 30px;
+  margin: 35px;
   font-family: "open sans";
+  font-weight: 600;
+  word-spacing: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.title .title__top {
-  margin: 0;
-  width: 70%;
-  font-size: 17px;
-  font-weight: 400;
-}
-.title .title__between {
-  margin: 0;
-}
-.title .title__between a {
-  text-decoration: none;
-  color: #fff;
-}
-.title .end {
-  position: relative;
-}
-.title .title__between:last-child {
-  position: absolute;
-  right: 0;
-  margin: 0;
-  width: 70%;
-  font-size: 17px;
-  font-weight: 400;
+
+.form {
+  display: flex;
 }
 
 .form__content {
@@ -364,6 +349,159 @@ body.active {
 .main {
   overflow: hidden;
   width: 100%;
+}
+
+.title__name1 {
+  opacity: 0;
+}
+
+.title__name2 {
+  display: none;
+}
+
+.title__name3 {
+  display: none;
+}
+
+.title__name4 {
+  display: none;
+}
+
+.title__name5 {
+  display: none;
+}
+
+.title__name6 {
+  display: none;
+}
+
+.title__name7 {
+  display: none;
+}
+
+.title__name8 {
+  display: none;
+}
+
+.title__name9 {
+  display: none;
+}
+
+.title__name10 {
+  display: none;
+}
+
+.title__name11 {
+  display: none;
+}
+
+.title__name12 {
+  display: none;
+}
+
+.title__name13 {
+  display: none;
+}
+
+.title__name14 {
+  display: none;
+}
+
+.title__name15 {
+  display: none;
+}
+
+.title__name16 {
+  display: none;
+}
+
+.title__name17 {
+  display: none;
+}
+
+.title__name1.active {
+  opacity: 1;
+  margin-right: 3px;
+}
+
+.title__name2.active {
+  display: block;
+  margin-right: 3px;
+}
+
+.title__name3.active {
+  display: block;
+  margin-right: 3px;
+}
+
+.title__name4.active {
+  display: block;
+  margin-right: 3px;
+}
+
+.title__name5.active {
+  display: block;
+  margin-right: 3px;
+}
+
+.title__name6.active {
+  display: block;
+  margin-right: 3px;
+}
+
+.title__name7.active {
+  display: block;
+  margin-right: 3px;
+}
+
+.title__name8.active {
+  display: block;
+  margin-right: 3px;
+}
+
+.title__name9.active {
+  display: block;
+  margin-right: 3px;
+}
+
+.title__name10.active {
+  display: block;
+  margin-right: 3px;
+}
+
+.title__name11.active {
+  display: block;
+  margin-right: 3px;
+}
+
+.title__name12.active {
+  display: block;
+  margin-right: 3px;
+}
+
+.title__name13.active {
+  display: block;
+  margin-right: 3px;
+}
+
+.title__name14.active {
+  display: block;
+  margin-right: 3px;
+}
+
+.title__name15.active {
+  display: block;
+  margin-right: 3px;
+}
+
+.title__name16.active {
+  display: block;
+  margin-right: 3px;
+}
+
+.title__name17.active {
+  display: block;
+  margin-right: 3px;
 }
 
 @media (max-width: 690px) {
