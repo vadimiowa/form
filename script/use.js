@@ -694,90 +694,82 @@ let multipleAsync = async () => {
 //     window.location = url;
 // })
 
-/////////////overkill of elements//////////////
+//////////////////////////////////////// OVERKILL of ELEMENTS /////////////////////////////////////////////
+let allElements = document.querySelectorAll(".title__name");
+let allElementsOne = document.querySelector(".title__nameOne");
+let arrCars = ["bmw", "audi", "toyota"];
+// console.log(allElements);
 
-// let numbes = [100, 200, 300, 400, 500];
+let del = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-// setInterval(() => {
-//     numbes.length && console.log(numbes.shift());
-// }, 1000);
+let addClass = cl => cl.classList.add("done");
+let removeClass = cl => cl.classList.remove("done");
 
-// let leters = document.querySelectorAll(".title__name");
-let leter1 = document.querySelector(".title__name1");
-let leter2 = document.querySelector(".title__name2");
-let leter3 = document.querySelector(".title__name3");
-let leter4 = document.querySelector(".title__name4");
-let leter5 = document.querySelector(".title__name5");
-let leter6 = document.querySelector(".title__name6");
-let leter7 = document.querySelector(".title__name7");
-let leter8 = document.querySelector(".title__name8");
-let leter9 = document.querySelector(".title__name9");
-let leter10 = document.querySelector(".title__name10");
-let leter11 = document.querySelector(".title__name11");
-let leter12 = document.querySelector(".title__name12");
-let leter13 = document.querySelector(".title__name13");
-let leter14 = document.querySelector(".title__name14");
-let leter15 = document.querySelector(".title__name15");
-let leter16 = document.querySelector(".title__name16");
-let leter17 = document.querySelector(".title__name17");
+let addClassOne = cl => cl.classList.add("doneOne");
+let removeClassOne = cl => cl.classList.remove("doneOne");
 
-let addClass = (node) => {
-    node.classList.add("active");
+let anotherColor = (node) => {
+    node.classList.add("aColor");
 }
 
-let showAll = new Promise(resolve => {
-    setTimeout(() => {
-        resolve(addClass(leter1));
-    }, 300)
-    setTimeout(() => {
-        resolve(addClass(leter2));
-    }, 450)
-    setTimeout(() => {
-        resolve(addClass(leter3));
-    }, 600)
-    setTimeout(() => {
-        resolve(addClass(leter4));
-    }, 750)
-    setTimeout(() => {
-        resolve(addClass(leter5));
-    }, 900)
-    setTimeout(() => {
-        resolve(addClass(leter6));
-    }, 1050)
-    setTimeout(() => {
-        resolve(addClass(leter7));
-    }, 1200)
-    setTimeout(() => {
-        resolve(addClass(leter8));
-    }, 1350)
-    setTimeout(() => {
-        resolve(addClass(leter9));
-    }, 1500)
-    setTimeout(() => {
-        resolve(addClass(leter10));
-    }, 1650)
-    setTimeout(() => {
-        resolve(addClass(leter11));
-    }, 1800)
-    setTimeout(() => {
-        resolve(addClass(leter12));
-    }, 1950)
-    setTimeout(() => {
-        resolve(addClass(leter13));
-    }, 2100)
-    setTimeout(() => {
-        resolve(addClass(leter14));
-    }, 2250)
-    setTimeout(() => {
-        resolve(addClass(leter15));
-    }, 2400)
-    setTimeout(() => {
-        resolve(addClass(leter16));
-    }, 2550)
-    setTimeout(() => {
-        resolve(addClass(leter17));
-    }, 2700)
-})
+//////////////////////////////////////////////////////
+let firstElement = async () => {
+    await del(50);
+    addClassOne(allElementsOne);
+
+}
+
+firstElement();
+
+let process = async (el) => {
+    await del(110);
+    addClass(el);
+}
+
+let main = async (e) => {
+    for(let element of e) {
+        await process(element);
+    }
+}
+
+main(allElements);
+
+//////////////////////////////////////////////////////
+let elementsBack = async (back) => {
+    await del(110);
+    removeClass(back);
+}
+
+let elementsBackOne = async (back) => {
+    await del(50);
+    removeClassOne(back);
+    anotherColor(back);
+}
+
+let processBack = async (back) => {
+    for(let element of back) {
+       await elementsBack(element);
+       anotherColor(element);
+    }
+}
+
+let show = async () => {
+    await del(2000);
+    processBack(allElements);
+    elementsBackOne(allElementsOne);
+}
+
+show();
+
+//////////////////////////////////////////////////////
+let after = async () => {
+    await del(4000);
+    main(allElements);
+    firstElement(allElementsOne);
+}
+
+after();
+////////////////////////////////////////////////// FINISHED /////////////////////////////////////////////////
 
 
 // I'll should to create this difficult function !!!!!
@@ -855,6 +847,7 @@ let emailTitle = document.querySelector(".email__title");
 
 let otherStyles = (node) => {
     node.classList.add("active");
+    node.classList.add("blackColor");
 }
 
 let waitClickTheme = (node) => {
@@ -863,6 +856,7 @@ let waitClickTheme = (node) => {
 
 let waitBack = (node) => {
     node.classList.remove("active");
+    node.classList.remove("blackColor");
 }
 
 themeClick.addEventListener("click", () => {
@@ -880,6 +874,10 @@ themeLight.addEventListener("click", () => {
     otherStyles(forget);
     otherStyles(remember);
     otherStyles(emailTitle);
+    otherStyles(allElementsOne);
+    allElements.forEach(item => {
+        otherStyles(item);
+    })
 });
 
 themeDark.addEventListener("click", () => {
@@ -892,6 +890,10 @@ themeDark.addEventListener("click", () => {
     waitBack(forget);
     waitBack(remember);
     waitBack(emailTitle);
+    waitBack(allElementsOne);
+    allElements.forEach(item => {
+        waitBack(item);
+    })
 });
 
 

@@ -16,6 +16,31 @@
     justify-content: center;
     align-items: center;
 }
+
+.title__nameOne {
+    opacity: 0;
+}
+
+.doneOne {
+    opacity: 1;
+}
+
+.title__name {
+    display: none;
+}
+
+.done {
+    display: block;
+}
+
+.aColor {
+    color: #fff;
+}
+
+.blackColor {
+    color: #000;
+}
+
 /////////////////////////////////////NEXT CONTENT////////////////////////////////////
 .form {
     display: flex;
@@ -145,7 +170,9 @@
     width: 100%;
     text-align: center;
     font-size: 14px;
-    background-color: #00a0ff;
+    background: linear-gradient(45deg, #1affdc85, #a767f78f);
+    animation: info 8s ease infinite;
+    background-size: 200%;
     padding: 15px;
     border-radius: 4px;
     color: #fff;
@@ -158,4 +185,16 @@
 
 .button:hover {
     padding: 20px;
+}
+
+@keyframes info {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% -50%;
+    }
+    100% {
+        background-position: 0 75%;
+    }
 }
